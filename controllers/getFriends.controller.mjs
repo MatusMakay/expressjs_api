@@ -1,3 +1,4 @@
+import {model} from '../models/friends.model.mjs'
 
 // create param in req.params object
 //url/:param
@@ -7,7 +8,7 @@ function getFriend(req, res) {
     const friendId = req.params.friendId
     var found = false
     
-    friends.map((elem) => {
+    model.map((elem) => {
         if(elem.id == friendId){
             found = true
             res.json(elem)
@@ -22,7 +23,7 @@ function getFriend(req, res) {
 }
 
 function getFriends(req, res){
-    res.json(friends)
+    res.json(model)
 }
 
 export {

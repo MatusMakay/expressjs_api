@@ -5,7 +5,7 @@ import { addFriend } from './controllers/addFriend.controller.mjs'
 const app = express()
 const PORT = 3000
 
-const friends = [{id : 2, name : "Matus"}, {id : 1, name : "Alex"}]
+
 
 app.use((req, res, next) => {
     
@@ -21,15 +21,15 @@ app.use((req, res, next) => {
 
 app.use(express.json())
 
-app.get('/', getHomePage(req, res))
+app.get('/', getHomePage)
 
-app.get('/friends', getFriends(req, res))
+app.get('/friends', getFriends)
 
 // create param in req.params object
 //url/:param
-app.get('/friends/:friendId', getFriend(req, res))
+app.get('/friends/:friendId', getFriend)
 
-app.post('/friends', addFriend(req, res))
+app.post('/friends', addFriend)
 
 app.listen(PORT, () => {
     console.log(`App is running on port = ${PORT}`)

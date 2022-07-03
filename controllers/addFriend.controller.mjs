@@ -1,3 +1,5 @@
+import {model} from '../models/friends.model.mjs'
+
 function addFriend(req, res){
     
     if(!req.body.name){
@@ -8,10 +10,10 @@ function addFriend(req, res){
 
     const newFriend = {
         name : req.body.name,
-        id : friends.length
+        id : model.length
     }
 
-    friends.push(newFriend)
+    model.push(newFriend)
 
     res.json(newFriend)
 
