@@ -6,23 +6,20 @@ function getFriend(req, res) {
 
 
     const friendId = req.params.friendId
-    var found = false
     
     model.map((elem) => {
         if(elem.id == friendId){
-            found = true
-            res.json(elem)
+            return res.json(elem)
         }
     })
 
-    if(!found){
-        res.status(404).json({
-            error: "Friends doesn't exist"
-        })
-    }
+    res.status(404).json({
+        error: "Friends doesn't exist"
+    })
 }
 
 function getFriends(req, res){
+    console.log('sending friends')
     res.json(model)
 }
 
